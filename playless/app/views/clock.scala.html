@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game</title>
+	<link rel="icon" type="image/png" href='@routes.Assets.at("img/favicon.png")'>
+	<link rel="stylesheet" type="text/css" href='@routes.Assets.at("stylesheets/style_game.css")'>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery-3.2.1.min.js")'></script>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/game.js")'></script>
+</head>
+<body>
+	<div id="wrapper">
+		<a href="/index"><img id="home" src='@routes.Assets.at("img/home.gif")' width="50" height="50"></a>
+		<header>
+			<h1>Count Up</h1>
+			<p id="record">Best Record : <span>0</span></p>
+			<p id="timer">Time : <span>0</span></p>
+		</header>
+		<main>
+			<div id="start">
+				<p></p>
+				<button>START</button>
+			</div>
+			<div id="play"></div>
+		</main>
+	</div>
+</body>
+</html>

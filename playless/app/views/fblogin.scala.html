@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fblogin</title>
+	<link rel="icon" type="image/png" href='@routes.Assets.at("img/favicon.png")'>
+	<link rel="stylesheet" type="text/css" href='@routes.Assets.at("stylesheets/style_fblogin.css")'>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery-3.2.1.min.js")'></script>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/fblogin.js")'></script>
+</head>
+<body>
+<div style="text-align: center;" width="auto">
+	<!-- <fb:login-button scope="public_profile,email"
+					 onlogin="checkLoginState();"></fb:login-button> -->
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();"
+  onclick="checkLoginState();">
+</fb:login-button>
+
+	<input type="button" 
+		   id="btnLogout" 
+		   value="Logout" 
+		   onclick="Logout();">
+
+	<a href="/light">light</a>  
+
+</div>
+<!-- <div id="status"> -->
+<!-- <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div> -->
+<div style="text-align: center;" width="auto">
+	<ul>
+		<li>123</li>
+		<li>456</li>
+		<li>789</li>
+		<li></li>
+	</ul>
+	<div class="a"></div>
+<div class="b">
+  <i class="b1"></i>
+  <i class="b2"></i>
+  <i class="b3"></i>
+</div>
+</div>
+</body>
+</html>

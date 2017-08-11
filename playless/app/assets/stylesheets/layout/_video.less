@@ -1,0 +1,95 @@
+body{
+	.body;
+	background-color: @color-video;
+	text-align: center;
+}
+.index{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 999;
+}
+header{
+	h1{
+		position: relative;
+		color: @color-brown;
+		font-weight: bold;
+		font-size: 4em;
+		line-height: 2em;
+	}
+}
+video{
+	border:2px solid @color-orange;
+	z-index: 10;
+}
+.wrapper{
+	position: relative;
+	.play{
+		position: absolute;
+		top: 0;
+		left: 10%;
+		background-color: @color-opacityBlk05;
+		width: 80%;
+		height: 100%;
+		z-index: 99;
+		display: inline-block;
+		&:hover{
+			cursor: pointer;
+		}
+		&::before{
+			width: 0;
+			height: 100%;
+			content: "";
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
+.controller{
+	position: fixed;
+	width: 100%;
+	top: 750px;
+	text-align: center;
+	button{
+		margin: 40px;
+		border: 3px dashed @color-CSS;
+		width: 50px;
+		height: 50px;
+		font-size: 2em;
+		border-radius: 40px;
+		background-color: @color-brown;
+		color: @color-navcolor;
+		font-weight: bold;
+		font-size: 2em;
+		&:focus{
+			outline: none;
+		}
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+@media @pad{
+	.controller{
+		top:550px;
+		button{
+			margin: 40px;
+			border: 2px dashed @color-CSS;
+			width: 40px;
+			height: 40px;
+			font-size: 1.5em;
+		}
+	}
+}
+@media @mobile{
+	.controller{
+		top:400px;
+		button{
+			margin: 30px;
+			border: 1px dashed @color-CSS;
+			width: 30px;
+			height: 30px;
+			font-size: 1em;
+		}
+	}
+}

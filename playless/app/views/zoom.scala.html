@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zoom</title>
+	<link rel="icon" type="image/png" href='@routes.Assets.at("img/favicon.png")'>
+	<link rel="stylesheet" type="text/css" href='@routes.Assets.at("stylesheets/style_zoom.css")'>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery-3.2.1.min.js")'></script>
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/zoom.js")'></script>
+</head>
+<body>
+	<a href="/index"><img id="home" src='@routes.Assets.at("img/home.gif")' width="50" height="50"></a>
+	<header>
+		<h1>Zoom</h1>
+	</header>
+	<main>
+		<div id="thumb">
+		<img src='@routes.Assets.at("img/thumb.jpg")'>
+			<span></span>
+		</div>
+		<div id="zoom">
+			<img src='@routes.Assets.at("img/zoom.jpg")'>
+		</div>
+	</main>
+</body>
+</html>

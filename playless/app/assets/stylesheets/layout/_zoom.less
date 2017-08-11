@@ -1,0 +1,48 @@
+body{
+	.body;
+	background-color: @color-star;
+}
+#home{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+header h1{
+	font-size: 4em;
+	color: @color-header;
+	font-weight: bold;
+	line-height: 3em;
+	text-align: center;
+}
+main{
+	width: 1000px;
+	margin: 0 auto;
+	div{
+		border:1px solid @color-orange;
+	}
+	#thumb{
+		width: 400px;
+		height: 400px;
+		float: left;
+		margin-left: 70px;
+	}
+	span{
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		display: none;
+		background: @color-opacityBlk05;
+		border: 1px solid @color-ROD;
+	}
+	#zoom{
+		width: 400px;
+		height: 400px;
+		float: right;
+		overflow: hidden;
+		margin-right: 70px;
+		position: relative;
+		img{
+			position: absolute;
+		}
+	}
+}
