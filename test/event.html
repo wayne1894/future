@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../resource/react.js"></script>
+    <script src="../resource/react-dom.js"></script>
+    <script src="../resource/browser.min.js"></script>
+    <style type="text/css">
+      .abc{
+        text-align: center;
+        font-size: 100px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="e1"></div>
+    <script type="text/babel">
+      class EventController extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={color:"black", class:"abc"};
+        }
+        render(){
+            return <div className={this.state.class}
+                        style={{color:this.state.color}}
+                        onMouseOver={this.mouseOverHandler.bind(this)}
+                        onMouseOut={this.mouseOutHandler.bind(this)}
+                        onClick={this.onclickHandler.bind(this)}>EventListener</div>;
+        }
+        mouseOverHandler(e){
+          this.setState({color:"red"});
+        }
+        mouseOutHandler(e){
+          this.setState({color:"black"});
+        }
+        onclickHandler(e){
+          this.setState({color:"white"});
+        }
+      }
+      window.addEventListener("load", ()=>{
+          ReactDOM.render(<EventController/>, document.getElementById('e1'));
+      });
+    </script>
+  </body>
+</html>

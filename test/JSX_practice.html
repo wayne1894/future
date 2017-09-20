@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../resource/react.js"></script>
+    <script src="../resource/react-dom.js"></script>
+    <script src="../resource/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="e1"></div>
+    <script type="text/babel">
+      class List extends React.Component{
+        // 適當的實作組件類別二
+        render(){
+          return <li style={{color:this.props.color}}>Item {this.props.number}</li>;
+        }
+      }
+       class Container extends React.Component{
+         // 實作 render 方法，回傳適當的繪製元件
+         render(){
+           return <ul>
+             <List number="1" color="red"/>
+             <List number="2" color="green"/> 
+             <List number="3" color="blue"/>
+             <List number="4"/>
+           </ul>;
+         }
+       }
+      window.addEventListener("load", ()=>{
+        // 建立組件實體
+        let element = <Container />;
+         // 繪製組件實體到網頁的容器(意指某個標籤)中
+        ReactDOM.render(element, document.getElementById('e1'));
+      });
+    </script>
+  </body>
+</html>

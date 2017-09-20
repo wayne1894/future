@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../resource/react.js"></script>
+    <script src="../resource/react-dom.js"></script>
+    <script src="../resource/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="aaa"></div>
+    <script type="text/babel">
+        class Change extends React.Component{
+          constructor(props){
+            super(props);
+            this.state={opacity:props.start};
+          }
+          componentDidMount(){
+            window.setInterval(()=>{
+              this.setState((currentState,currentProps)=>{
+                if(currentState.opacity>currentProps.end){
+                  return {opacity:currentState.opacity -= currentProps.space}
+                }else{
+                  return {opacity:currentState.opacity = currentProps.start}
+                }
+              })
+            },20);
+          }
+
+          render(){
+            return (
+              <div style={{opacity:this.state.opacity}}>
+              HELLO WORLD!
+              </div>
+            )
+          }
+        }
+        window.addEventListener("load", ()=>{
+          let change = React.createElement(Change, {start:1, end:0, space:.01});
+          ReactDOM.render(change, document.getElementById('aaa'));
+      });
+    </script>
+  </body>
+</html>
+// const divStyle = {
+//   color: 'red',
+//   backgroundImage: 'url(' + imgUrl + ')',
+// };
+
+// ReactDOM.render(<div style={divStyle}>Hello World!</div>, document.getElementById('app'));

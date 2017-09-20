@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../resource/react.js"></script>
+    <script src="../resource/react-dom.js"></script>
+    <script src="../resource/browser.min.js"></script>
+    <style type="text/css">
+      .container{
+        margin:auto;
+        text-align:center;
+      }
+      .ans{
+        display:inline-block;
+        margin:0 10px 0 10px;
+        width:40px;
+        height:40px;
+        border-radius:20px;
+        background-color:rgba(233,233,233,.7);
+        font-size:20px;
+        line-height:2;
+        text-align:center;
+        color:rgb(200,50,50);
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main"></main>
+    <script type="text/babel">
+      let count;
+      let list=[];
+      class Lottow extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+              quantity:6
+            };
+        }
+        render(){
+          for(let i=0; i<this.state.quantity; i++){
+            list[i]=Math.floor(Math.random()*50)+1;
+            list.push(<Maker/>);
+            console.log(<Maker/>);
+          };
+          return <div className="container">{list}</div>;
+        }
+      }
+      class Maker extends React.Component{
+        render(){
+          return <div className="ans">{list}</div>;
+
+        }
+      }
+      window.addEventListener("load", ()=>{
+          ReactDOM.render(<Lottow/>, document.getElementById('main'));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../resource/react.js"></script>
+    <script src="../resource/react-dom.js"></script>
+    <script src="../resource/browser.min.js"></script>
+  </head>
+  <body>
+    <script type="text/babel">
+      class Addul extends React.Component{
+        constructor(props){
+          super(props);
+          this.state={maxNumber:props.start};
+        }
+        componentWillMount(){
+          this.intervalId = window.setInterval(()=>{
+            this.setState((currentState,currentProps)=>{
+              if(currentState.maxNumber>currentProps.end){
+                return currentState;
+              }else{
+                return {maxNumber:currentState.maxNumber+1};
+              }
+            });
+          },1000);
+        }  
+        componentWillUnmount(){
+          window.clearInterval(this.intervalId);
+        }
+      // 實作 render 方法，回傳適當的繪製元件
+        render(){
+          let list;
+          let lists=[];
+          for(let i=this.props.start; i<this.state.maxNumber; i++){
+            list = React.createElement(Addli,{number:i});
+            lists.push(list);
+          }
+          return React.createElement("div",null,lists);
+        }
+      }
+      class Addli extends React.Component{
+        render(){
+          return React.createElement("div",null,"Item "+this.props.number);
+        }
+      }
+
+      window.addEventListener("load", ()=>{
+        // 3. 在網頁靜態內容載入後的主程序中，利用 React 組件繪製會面
+        // 建立組件實體
+        let component=React.createElement(Addul, {start:3,end:8});
+        // 繪製組件實體到網頁的容器(意指某個標籤)中
+        ReactDOM.render(component, document.body);
+      });
+    </script>
+  </body>
+</html>

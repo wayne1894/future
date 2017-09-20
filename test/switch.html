@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../resource/react.js"></script>
+    <script src="../resource/react-dom.js"></script>
+    <script src="../resource/browser.min.js"></script>
+    <style type="text/css">
+      .switch{
+        width:72px;
+        height:40px;
+        background-color:rgb(170,170,170);
+        border-radius:20px;
+      }
+      .switch .btn{
+        width:36px;
+        height:36px;
+        background-color:rgb(230,230,230);
+        border-radius:18px;
+        margin:2px 0 0 2px;
+        position:absolute;
+      }
+      .switch-on{
+        background-color:rgb(80,180,120);
+      }
+      .switch-on .btn{
+        margin-left:34px;
+      }
+      .animate{
+        animation-name: ani;
+        animation-duration: .5s;
+      }
+      @keyframes ani {
+        from {background-color: rgb(230,230,230);margin-left:2px;}
+        to {background-color: rgb(80,180,120);margin-left:34px;}
+      }
+    </style>
+    <script type="text/babel">
+      class Switch extends React.Component{
+        constructor(props){
+          super(props);
+          this.state={on:false, animate:false}
+        }
+        render(){
+          let className="switch";
+          if(this.state.on){
+            className+=" switch-on";
+          }
+          if(this.state.animate){
+            className+=" animate";
+          }
+            return <div className={className} onClick={this.controller.bind(this)}>
+              <div className="btn"></div>
+            </div>;
+        }
+        controller(){
+          this.setState((currentState)=>({on:!currentState.on, animate:!currentState.animate}));
+        }
+      }
+      window.addEventListener("load", ()=>{
+          ReactDOM.render(<Switch/>, document.getElementById('e1'));
+          ReactDOM.render(<Switch/>, document.getElementById('e2'));
+      });
+    </script>
+  </head>
+  <body>
+    <div id="e1"></div>
+    <hr/>
+    <div id="e2"></div>
+  </body>
+</html>
