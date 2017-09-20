@@ -37,17 +37,15 @@
         }
         render(){
           for(let i=0; i<this.state.quantity; i++){
-            list[i]=Math.floor(Math.random()*50)+1;
-            list.push(<Maker/>);
-            console.log(<Maker/>);
+            count=Math.floor(Math.random()*50)+1;
+            list[i]=<Maker/>;
           };
           return <div className="container">{list}</div>;
         }
       }
       class Maker extends React.Component{
         render(){
-          return <div className="ans">{list}</div>;
-
+          return <div className="ans">{count}</div>;
         }
       }
       window.addEventListener("load", ()=>{
